@@ -5,19 +5,11 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-  purge: {
-    content: [
-      './src/pages/**/*.{js,ts,jsx,tsx}',
-      './src/components/**/*.{js,ts,jsx,tsx}'
-    ],
-    options: {
-      // https://purgecss.com/safelisting.html#patterns
-      safelist: {
-        standard: [/^bg-/, /^text-/],
-      },
-    },
-  },
-  darkMode: false,
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}'
+  ],
+  darkMode: 'media',
   mode: 'jit',
 }
 
