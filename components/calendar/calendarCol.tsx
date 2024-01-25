@@ -54,17 +54,45 @@ const data: DataProps = [
 
 
 export default function CalendarColumn({day}: Props) {
-    const dates: Dayjs[] = []
+    const dates: number[] = []
     data.forEach((data) => {
         const date = dayjs(data.date)
         if (date.day() === day) {
-            dates.push(date)
+            dates.push(date.date())
         }
     })
+    if ((day === 0 ) && dates[0] > 5) {
+        dates.unshift(NaN)
+    }
+    let dayStr: string = '';
+    switch(day) {
+        case 0:
+            dayStr = '日'
+            break
+        case 1:
+            dayStr = '月'
+            break
+        case 2:
+            dayStr = '火'
+            break
+        case 3:
+            dayStr = '水'
+            break
+        case 4:
+            dayStr = '木'
+            break
+        case 5:
+            dayStr = '金'
+            break
+        case 6:
+            dayStr = '土'
+            break
+    }
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-stretch">
+            <span className='text-center text-sm'>{dayStr}</span>
             {dates.map((date) => {
-                return (<CalendarDay key={date.date()} day={date.date()}/>)
+                return (<><CalendarDay key={date} day={date}/></>)
             })}
         </div>
     )

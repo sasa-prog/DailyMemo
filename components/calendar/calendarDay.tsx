@@ -5,7 +5,7 @@ type Props = {
 export default function CalendarDay({ day }: Props) {
     return (
         <>
-          <span className='text-xs'>{day} </span>
+          <span className='text-center text-sm'>{!Number.isNaN(day)?day:'\u3000'} </span>
         </>
     )
 }
