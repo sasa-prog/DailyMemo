@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 import CalendarDay from './calendarDay'
 
 type Props = {
-    day: Number;
+    day: number;
 }
 
 type DataProps = {
@@ -64,30 +64,7 @@ export default function CalendarColumn({day}: Props) {
     if ((day === 0 ) && dates[0] > 5) {
         dates.unshift(NaN)
     }
-    let dayStr: string = '';
-    switch(day) {
-        case 0:
-            dayStr = '日'
-            break
-        case 1:
-            dayStr = '月'
-            break
-        case 2:
-            dayStr = '火'
-            break
-        case 3:
-            dayStr = '水'
-            break
-        case 4:
-            dayStr = '木'
-            break
-        case 5:
-            dayStr = '金'
-            break
-        case 6:
-            dayStr = '土'
-            break
-    }
+    const dayStr = getDayStr(day)
     return (
         <div className="flex flex-col justify-stretch">
             <span className='text-center text-sm'>{dayStr}</span>
@@ -96,4 +73,24 @@ export default function CalendarColumn({day}: Props) {
             })}
         </div>
     )
+}
+
+function getDayStr(day: number): string {
+    switch(day) {
+        case 0:
+            return '日'
+        case 1:
+            return'月'
+        case 2:
+            return'火'
+        case 3:
+            return '水'
+        case 4:
+            return '木'
+        case 5:
+            return '金'
+        case 6:
+            return '土'
+    }
+    return ''
 }
