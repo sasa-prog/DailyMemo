@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from 'react'
 import dayjs, { Dayjs } from 'dayjs'
 import toast from 'react-hot-toast'
@@ -69,7 +68,7 @@ export default function CalendarColumn({day}: Props) {
         <div className="flex flex-col justify-stretch">
             <span className='text-center text-xl'>{dayStr}</span>
             {dates.map((date) => {
-                return (<CalendarDay key={date} day={date}/>)
+                return (<CalendarDay key={date} day={date} />)
             })}
         </div>
     )
