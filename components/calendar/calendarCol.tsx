@@ -67,9 +67,9 @@ export default function CalendarColumn({day}: Props) {
     const dayStr = getDayStr(day)
     return (
         <div className="flex flex-col justify-stretch">
-            <span className='text-center text-sm'>{dayStr}</span>
+            <span className='text-center text-xl'>{dayStr}</span>
             {dates.map((date) => {
-                return (<><CalendarDay key={date} day={date}/></>)
+                return (<CalendarDay key={date} day={date}/>)
             })}
         </div>
     )
