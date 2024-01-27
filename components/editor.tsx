@@ -5,3 +5,9 @@ export default function MemoEditor(props: PropsWithChildren) {
         <h2>メモを作成</h2>
     )
 }
+
+export function SideBarEditor() {
+    return (
+        <h2>メモを作成</h2>
+    )
+}
