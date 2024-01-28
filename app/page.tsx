@@ -1,12 +1,11 @@
-import Calendar from "@/components/calendar/calendar";
 import { Toaster } from "react-hot-toast";
+import MainView from "./main";
 
 export default function Home() {
   return (
     <>
       <Toaster />
-      <h1>Daily Memo</h1>
-      <Calendar />
+      <MainView />
     </>
   )
 }

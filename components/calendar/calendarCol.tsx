@@ -6,6 +6,7 @@ import CalendarDay from './calendarDay'
 
 type Props = {
     day: number;
+    clickHandler: Function;
 }
 
 type DataProps = {
@@ -52,7 +53,7 @@ const data: DataProps = [
 ]
 
 
-export default function CalendarColumn({day}: Props) {
+export default function CalendarColumn({day, clickHandler}: Props) {
     const dates: number[] = []
     data.forEach((data) => {
         const date = dayjs(data.date)
@@ -68,7 +69,7 @@ export default function CalendarColumn({day}: Props) {
         <div className="flex flex-col justify-stretch">
             <span className='text-center text-xl'>{dayStr}</span>
             {dates.map((date) => {
-                return (<CalendarDay key={date} day={date} />)
+                return (<CalendarDay key={date} day={date} clickHandler={clickHandler} />)
             })}
         </div>
     )

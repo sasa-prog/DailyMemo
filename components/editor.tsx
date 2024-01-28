@@ -8,6 +8,8 @@ export default function MemoEditor(props: PropsWithChildren) {
 
 export function SideBarEditor() {
     return (
-        <h2>メモを作成</h2>
+        <div className='flex'>
+            <h2>メモを作成</h2>
+        </div>
     )
 }
