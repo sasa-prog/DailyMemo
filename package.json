@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write 'app/**/*.tsx' 'components/**/*.tsx'"
   },
   "dependencies": {
     "dayjs": "^1.11.10",
@@ -23,8 +24,10 @@
     "autoprefixer": "^10.4.17",
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-tailwindcss": "^3.14.0",
     "postcss": "^8.4.33",
+    "prettier": "^3.2.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
