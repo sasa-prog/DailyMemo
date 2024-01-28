@@ -1,5 +1,5 @@
-import { Toaster } from "react-hot-toast";
-import MainView from "./main";
+import { Toaster } from 'react-hot-toast';
+import MainView from './main';
 
 export default function Home() {
   return (
@@ -7,5 +7,5 @@ export default function Home() {
       <Toaster />
       <MainView />
     </>
-  )
+  );
 }
