@@ -1,0 +1,29 @@
+.sideEditor {
+    transform: translateX(300px);
+    position: fixed;
+    right: 100px;
+    width: max-content;
+}
+
+.animIn {
+    animation: slideIn 0.5s forwards;
+}
+
+.animOut {
+    animation: slideOut 0.5s forwards;
+}
+
+@keyframes slideIn {
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translate(0px);
+    }
+    100% {
+        transform: translateX(300px);
+    }
+}

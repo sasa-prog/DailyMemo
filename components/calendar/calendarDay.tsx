@@ -1,5 +1,4 @@
 'use client';
-import toast from 'react-hot-toast';
 
 type Props = {
   day: number;
@@ -8,7 +7,6 @@ type Props = {
 
 export default function CalendarDay({ day, clickHandler }: Props) {
   const onclick = () => {
-    toast.success('予定特になし！');
     clickHandler();
   };
   return (

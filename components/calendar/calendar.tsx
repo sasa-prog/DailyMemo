@@ -12,7 +12,7 @@ export default function Calendar({ clickHandler }: Props) {
   return (
     <div className={styles.flexContainer}>
       <div
-        className={`${styles.main} flex flex-row flex-nowrap justify-center`}
+        className={`${styles.main} mx-auto flex flex-row flex-nowrap justify-center`}
       >
         {days.map((day) => {
           return (

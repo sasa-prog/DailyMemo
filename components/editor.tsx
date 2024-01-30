@@ -1,14 +1,22 @@
-import { PropsWithChildren } from 'react';
+'use client';
+import { PropsWithChildren, useState } from 'react';
 
 import calendarStyles from '@/components/styles/calendar.module.scss';
+import styles from '@/components/styles/editor.module.scss';
 
 export default function MemoEditor(props: PropsWithChildren) {
   return <h2>メモを作成</h2>;
 }
 
-export function CalendarSideBarEditor() {
+type Props = {
+  isOpen: boolean;
+};
+
+export function CalendarSideBarEditor({ isOpen }: Props) {
   return (
-    <div className={`${calendarStyles.sideBar} flex`}>
+    <div
+      className={`${calendarStyles.sideBar} ${styles.sideEditor} ${isOpen ? styles.animIn : styles.animOut} flex`}
+    >
       <h2>メモを作成</h2>
     </div>
   );

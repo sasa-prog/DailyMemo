@@ -2,21 +2,25 @@
 
 import Calendar from '@/components/calendar/calendar';
 import { CalendarSideBarEditor } from '@/components/editor';
-import TwoColumn from '@/components/twocolumn';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function MainView() {
   const [viewSideEditor, setViewSideEditor] = useState(false);
+  const [openSideEditor, setOpenSideEditor] = useState(false);
   return (
     <>
-      <TwoColumn>
-        <Calendar
-          clickHandler={() => {
-            setViewSideEditor(!viewSideEditor);
-          }}
-        />
-        {viewSideEditor && <CalendarSideBarEditor />}
-      </TwoColumn>
+      <Calendar
+        clickHandler={() => {
+          if (viewSideEditor) {
+            setOpenSideEditor(false);
+            setTimeout(() => setViewSideEditor(false), 1000);
+          } else {
+            setOpenSideEditor(true);
+            setViewSideEditor(true);
+          }
+        }}
+      />
+      {viewSideEditor && <CalendarSideBarEditor isOpen={openSideEditor} />}
     </>
   );
 }
