@@ -1,13 +1,15 @@
 'use client';
 
+import dayjs, { Dayjs } from 'dayjs';
+
 type Props = {
-  day: number;
+  day: Dayjs | undefined;
   clickHandler: Function;
 };
 
 export default function CalendarDay({ day, clickHandler }: Props) {
   const onclick = () => {
-    clickHandler();
+    clickHandler(day);
   };
   return (
     <button
@@ -15,7 +17,7 @@ export default function CalendarDay({ day, clickHandler }: Props) {
       className="border border-solid border-black p-10 text-center text-xl"
       tabIndex={0}
     >
-      <span>{!Number.isNaN(day) ? day : '\u3000'} </span>
+      <span>{day != undefined ? day.date() : '\u3000'} </span>
     </button>
   );
 }

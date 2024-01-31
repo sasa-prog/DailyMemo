@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import dayjs, { Dayjs } from 'dayjs';
+import timezone from 'dayjs/plugin/timezone'
 import toast from 'react-hot-toast';
 import CalendarDay from './calendarDay';
 
@@ -52,16 +53,18 @@ const data: DataProps = [
   { id: 35, date: '2023-09-03' },
 ];
 
+dayjs.extend(timezone)
+
 export default function CalendarColumn({ day, clickHandler }: Props) {
-  const dates: number[] = [];
+  const dates: (Dayjs | undefined)[] = [];
   data.forEach((data) => {
     const date = dayjs(data.date);
     if (date.day() === day) {
-      dates.push(date.date());
+      dates.push(date);
     }
   });
-  if (day === 0 && dates[0] > 5) {
-    dates.unshift(NaN);
+  if (day === 0 && dates[0] != undefined && dates[0].daysInMonth() > 5) {
+    dates.unshift(undefined);
   }
   const dayStr = getDayStr(day);
   return (
@@ -69,7 +72,11 @@ export default function CalendarColumn({ day, clickHandler }: Props) {
       <span className="text-center text-xl">{dayStr}</span>
       {dates.map((date) => {
         return (
-          <CalendarDay key={date} day={date} clickHandler={clickHandler} />
+          <CalendarDay
+            key={date != undefined ? date.date() : NaN}
+            day={date}
+            clickHandler={clickHandler}
+          />
         );
       })}
     </div>
